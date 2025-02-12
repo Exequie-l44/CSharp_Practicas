@@ -1,25 +1,19 @@
-﻿using System.Runtime.CompilerServices;
+﻿//This code is used to count how many character the massage has 
 
-Random random = new Random();
+string massage = "The quick brown fox jumps over the Lay dog";
+char[] charMassage = massage.ToCharArray();
+int x = 0;
 
-string [] orderIDs = new string[5];
-//loop through each blank order 
-System.Console.WriteLine(orderIDs.Length);
-for (int i=0 ; i < orderIDs.Length; i++)
+Array.Reverse(charMassage);
+
+foreach(char i in charMassage)
 {
-    System.Console.WriteLine(i);
-    //get a random value that equates to ASCII letters A through E
-    int prefixValue = random.Next(65, 70);
-    //convert the random value into a char, then a string
-    string prefix = Convert.ToChar(prefixValue).ToString();
-    //create the random number, pad with zeroes 
-    string suffix = random.Next(1, 1000).ToString();
-    //combine the prefix and suffix togothe, then assing to current orderIDs
-    
-    orderIDs[i] = prefix + suffix;
+    if(i == 'o')
+    {
+        x++;
+    }
 }
 
-foreach (var orderID in orderIDs)
-{
-    System.Console.WriteLine(orderID);
-}
+string new_massge = new string(charMassage);
+
+System.Console.WriteLine($"{new_massge} \n 'o' appears {x} times.");
